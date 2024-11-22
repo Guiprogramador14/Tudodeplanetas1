@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DE JÚPITER</h1> <!--cabeçalho-->
+</header>
+
+
+  <nav id="menuPlanetas">
+    <!--páginas dos botões do cabeçalho-->
+      <button onclick="window.location.href='index.html'">Sistema Solar</button>
+    </nav>
+
+<section>
+  
+  <img src="imagens/jupiter foto.png" alt = "Imagem de Júpiter" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Júpiter? </div>
+
+ <br>
+
+ <div class= "resposta">
+  Júpiter é o maior planeta do Sistema Solar, tanto em diâmetro quanto em massa, e é o quinto mais
+   próximo do Sol. Possui menos de um milésimo da massa solar, contudo tem 2,5 vezes a massa de
+    todos os outros planetas em conjunto. É um planeta gasoso, junto com Saturno, Urano e Netuno.
+     Estes quatro planetas são por vezes chamados planetas jupiterianos ou planetas jovianos, e são os
+      quatro gigantes gasosos, isto é, que não são compostos primariamente de matéria sólida.
+ </div>
+   
+ <div class="pergunta"> Características do Planeta:</div>
+
+<br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Júpiter </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	1,898 x 10^27</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Gasoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 778.500.000 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td> 0d 9h 56m na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>4 331,572 dias / 11,85 anos</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>95 Satélites</td>  </tr>
+ <tr>  <th> Raio </th> <td> 69.911 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 6,142 x 10^10 km² </td>  </tr>
+  </table>
+
+<br> <br>
+
+<button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+<div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+  <script>
+    // Temperaturas do planeta
+     temperaturaMinima = "-160";
+     temperaturaMedia = "-145";
+     temperaturaMaxima = "20000";
+
+    let acertos = 0;
+
+    // Função que pergunta e verifica a resposta
+    function perguntarTemperatura(tipo, valorCorreto) {
+      let resposta;
+      while (resposta !== valorCorreto) {
+        resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+        if (resposta > valorCorreto) {
+          alert("Resposta incorreta, o valor é menor");
+        }
+        if (resposta < valorCorreto) {
+          alert("Resposta incorreta, o valor é maior");
+       }
+      }
+      acertos++;
+      alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+    }
+
+    // Função para iniciar as perguntas quando o botão for clicado
+    function iniciarPerguntas() {
+      // Perguntas sobre as temperaturas
+      perguntarTemperatura("mínima", temperaturaMinima);
+      perguntarTemperatura("média", temperaturaMedia);
+      perguntarTemperatura("máxima", temperaturaMaxima);
+
+      // Exibe a tabela após o usuário acertar todas as respostas
+      if (acertos === 3) {
+        const tabelaHTML = `
+          <table border="1">
+            <thead>
+              <tr>
+                <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+              </tr>
+            </thead>
+            <tr class="blue">
+              <th>Mínima</th>
+              <td>${temperaturaMinima}°C</td>
+            </tr>
+            <tr class="pink">
+              <th>Média</th>
+              <td>${temperaturaMedia}°C</td>
+            </tr>
+            <tr class="red">
+              <th>Máxima</th>
+              <td>${temperaturaMaxima}°C</td>
+            </tr>
+          </table>
+        `;
+        
+        // Adiciona a tabela ao div com id "tabela-container"
+        document.getElementById("tabela-container").innerHTML = tabelaHTML;
+      }
+    }
+  </script>
+
+<div class="pergunta"> Um pouco sobre o planeta: </div>
+
+<div class="resposta">
+  Júpiter é composto principalmente de hidrogênio, sendo um quarto de sua massa composta de hélio,
+  embora o hélio corresponda a apenas um décimo do número total de moléculas. O planeta também pode
+  possuir um núcleo rochoso composto por elementos mais pesados, embora, como os outros planetas
+  gigantes, não possua uma superfície sólida bem definida. Por causa de sua rotação rápida, de
+  cerca de dez horas, ele possui o formato de uma esfera oblata (ele possui uma suave, mas
+  perceptível, saliência em torno do equador). Sua atmosfera externa é visivelmente dividida
+  em diversas faixas, em várias latitudes, resultando em turbulência e tempestades nas regiões
+  onde as faixas se encontram. Uma dessas tempestades é a Grande Mancha Vermelha, uma das
+  características visíveis de Júpiter mais conhecidas e proeminentes, cuja existência data
+  pelo menos do século XVII, quando foi pela primeira vez avistada com telescópio, com
+  ventos de até 650  km/h e um diâmetro transversal duas vezes maior do que a Terra.
+<br><br>
+  É cerca de 11 vezes maior que a Terra em diâmetro e possui massa aproximadamente 318
+  vezes maior que a da Terra.
+<br> <br>
+  Júpiter é composto principalmente de hidrogênio e hélio, sem uma superfície sólida definida.
+  Sua atmosfera é caracterizada por faixas coloridas distintas de nuvens, incluindo
+  a Grande Mancha Vermelha, uma tempestade antiga e gigantesca.
+<br>
+  Júpiter tem pelo menos 79 luas conhecidas, sendo as quatro maiores Io, Europa,
+  Ganimedes e Calisto, conhecidas como as luas galileanas, descobertas por Galileu Galilei em 1610.
+<br> 
+  Júpiter tem um campo magnético extremamente poderoso, cerca de 14 vezes
+  mais forte que o da Terra.
+
+<div class="pergunta"> Sua descoberta: </div>
+<div class="resposta">
+  Júpiter é um dos cinco planetas visíveis a olho nu e era conhecido pelos antigos astrônomos.
+  Civilizações como os babilônios registraram suas observações de Júpiter já por volta de 7 a.C.
+<br>
+  A descoberta mais significativa sobre Júpiter foi feita por Galileu Galilei em 7 de janeiro de 1610.
+  Usando um telescópio que ele mesmo aperfeiçoou, Galileu observou quatro luas em órbita ao redor de
+  Júpiter. Essas luas, que hoje são conhecidas como as luas galileanas (Io, Europa, Ganimedes e Calisto),
+  foram as primeiras luas descobertas orbitando um planeta além da Terra.
+<br>
+  A descoberta das luas de Júpiter por Galileu foi um marco na história da astronomia, pois desafiou
+  a visão geocêntrica do universo, mostrando que corpos celestes podiam orbitar outros corpos além
+  da Terra. Isso fortaleceu a visão heliocêntrica de Copérnico e contribuiu significativamente para
+  a compreensão moderna do sistema solar.
+</div>
+  
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

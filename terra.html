@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DA TERRA</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+ 
+<section>
+  
+  <img src="imagens/terra foto.png" alt = "Imagem da Terra" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Terra? </div>
+
+ <p> </p>
+
+ <div class= "resposta">
+  A Terra é o terceiro planeta mais próximo do Sol, o mais denso e o quinto maior dos oito planetas
+  do Sistema Solar. É também o maior dos quatro planetas telúricos. É por vezes designada como Mundo
+  ou Planeta Azul. Lar de milhões de espécies de seres vivos, incluindo os humanos, a Terra é o
+  único corpo celeste onde é conhecida a existência de vida.
+  <br> <br>
+  O planeta formou-se há 4,56 bilhões de
+  anos, e a vida surgiu na sua superfície um bilhão de anos depois. Desde então, a
+  biosfera terrestre alterou significativamente a atmosfera e outros fatores abióticos do planeta,
+  permitindo a proliferação de organismos aeróbicos, bem como a formação de uma camada de ozônio,
+  a qual, em conjunto com o campo magnético terrestre, bloqueia radiação solar prejudicial,
+  permitindo a vida no planeta. As propriedades físicas do planeta, bem como sua história
+  geológica e órbita, permitiram que a vida persistisse durante este período. Acredita-se que
+  a Terra poderá suportar vida durante pelo menos outros 500 milhões de anos.
+ </div>
+   
+ <div class="pergunta"> Características do Planeta:</div>
+
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Terra </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	5,9736 x 10^24</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Rochoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 149.600.000 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td>24 horas</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>365 dias</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td> 1 Satélite</td>  </tr>
+ <tr>  <th> Raio </th> <td> 6 378,1 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 510.100.000 km² </td>  </tr>
+  </table>
+
+<br> <br>
+
+<button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+<div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+    <script>
+      // Temperaturas do planeta
+       temperaturaMinima = "-93,2";
+       temperaturaMedia = "14";
+       temperaturaMaxima = "57,8";
+  
+      let acertos = 0;
+  
+      // Função que pergunta e verifica a resposta
+      function perguntarTemperatura(tipo, valorCorreto) {
+        let resposta;
+        while (resposta !== valorCorreto) {
+          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+          if (resposta > valorCorreto) {
+            alert("Resposta incorreta, o valor é menor");
+          }
+          if (resposta < valorCorreto) {
+            alert("Resposta incorreta, o valor é maior");
+         }
+        }
+        acertos++;
+        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+      }
+  
+      // Função para iniciar as perguntas quando o botão for clicado
+      function iniciarPerguntas() {
+        // Perguntas sobre as temperaturas
+        perguntarTemperatura("mínima", temperaturaMinima);
+        perguntarTemperatura("média", temperaturaMedia);
+        perguntarTemperatura("máxima", temperaturaMaxima);
+  
+        // Exibe a tabela após o usuário acertar todas as respostas
+        if (acertos === 3) {
+          const tabelaHTML = `
+            <table border="1">
+              <thead>
+                <tr>
+                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+                </tr>
+              </thead>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </table>
+          `;
+          
+          // Adiciona a tabela ao div com id "tabela-container"
+          document.getElementById("tabela-container").innerHTML = tabelaHTML;
+        }
+      }
+    </script>
+
+    <div class="pergunta"> Um pouco sobre o planeta: </div>
+
+    <div class="resposta">
+      A Terra é composta por várias camadas distintas: a crosta, o manto, o núcleo externo e o núcleo interno.
+      A crosta é a camada mais fina e sólida, variando em espessura de 5 a 70 quilômetros sob os continentes
+      e cerca de 5 a 10 quilômetros sob os oceanos.
+      O manto é a camada mais extensa, composta principalmente de rochas sólidas, embora em estados
+      deformados devido ao calor e à pressão. Abaixo do manto está o núcleo, que é dividido em um núcleo
+      externo líquido de ferro e níquel e um núcleo interno sólido.
+<br> <br>
+  A atmosfera da Terra é composta principalmente de nitrogênio (cerca de 78%) e oxigênio
+  (cerca de 21%), com pequenas quantidades de outros gases como argônio, dióxido de carbono e vapor d'água.
+<br> <br>
+  Ela desempenha papéis críticos na proteção contra radiações solares prejudiciais, na regulação da
+  temperatura global e no suporte à vida através do ciclo do carbono e do ciclo da água.
+<br> <br>
+  A Terra possui placas tectônicas que flutuam sobre o manto semi-fluído. A interação dessas
+  placas causa terremotos, formação de cadeias de montanhas, vulcões e outros fenômenos geológicos.
+<br> <br>
+  A Terra possui placas tectônicas que flutuam sobre o manto semi-fluído. A interação dessas placas
+  causa terremotos, formação de cadeias de montanhas, vulcões e outros fenômenos geológicos.
+  Exemplos notáveis incluem a formação dos Himalaias devido à colisão entre as placas
+  Indo-Australiana e Euro-Asiática.
+<br> <br>
+  A Terra enfrenta sérios desafios ambientais devido à atividade humana, incluindo mudanças climáticas
+  devido ao aumento das emissões de gases de efeito estufa, perda de biodiversidade devido à destruição
+  de habitats naturais e poluição generalizada de oceanos, rios e atmosfera.
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

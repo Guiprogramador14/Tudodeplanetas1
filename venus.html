@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DE VÊNUS</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+
+<section>
+  
+  <img src="imagens/venus foto.png" alt = "Imagem de Vênus" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Vênus? </div>
+
+ <p> </p>
+
+ <div class= "resposta">
+  O planeta Vênus é o segundo do nosso sistema solar a partir do Sol e o mais próximo da Terra, 
+  a apenas 61 milhões de quilômetros de distância. Uma de suas principais características é o fato de,
+  como um planeta rochoso, sua superfície ser composta por vales e altas montanhas, cheias de vulcões.
+<br>
+  Vênus é coberto por uma camada opaca de nuvens de ácido sulfúrico altamente reflexivas, impedindo que a sua 
+  superfície seja vista do espaço na luz visível. Ele possui a mais densa atmosfera entre todos os planetas
+  terrestres do Sistema Solar, constituída principalmente de dióxido de carbono. Vênus não possui um ciclo
+  do carbono para fixar o carbono em rochas ou outros componentes da superfície, nem parece ter vida
+  orgânica para absorvê-lo como biomassa. Acredita-se que no passado Vênus possuía oceanos como os da 
+  Terra, que se evaporaram quando a temperatura se elevou, restando uma paisagem desértica, seca e
+  poeirenta, com muitas pedras em forma de placas. A água provavelmente se dissociou e, devido à 
+  inexistência de um campo magnético, o hidrogênio foi arrastado para o espaço interplanetário pelo
+  vento solar. A pressão atmosférica na superfície do planeta é 92 vezes a da Terra.
+ </div>
+   
+ <div class="pergunta"> Características do Planeta:</div>
+ <br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Vênus </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	4,867 x 10^24</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Rochoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 108.200.000 km  </td> </tr>
+   <tr>  <th> Duração do dia </th> <td> 243 dias na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>225 dias</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>Nenhuma</td>  </tr>
+ <tr>  <th> Raio </th> <td> 6.051,8 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 460.200.000 km²</td>  </tr>
+  </table>
+
+  <br> <br>
+
+    <button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+    <div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+  
+    <script>
+      // Temperaturas do planeta
+       temperaturaMinima = "460";
+       temperaturaMedia = "464";
+       temperaturaMaxima = "465";
+  
+      let acertos = 0;
+  
+      // Função que pergunta e verifica a resposta
+      function perguntarTemperatura(tipo, valorCorreto) {
+        let resposta;
+        while (resposta !== valorCorreto) {
+          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+          if (resposta > valorCorreto) {
+            alert("Resposta incorreta, o valor é menor");
+          }
+          if (resposta < valorCorreto) {
+            alert("Resposta incorreta, o valor é maior");
+         }
+        }
+        acertos++;
+        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+      }
+  
+      // Função para iniciar as perguntas quando o botão for clicado
+      function iniciarPerguntas() {
+        // Perguntas sobre as temperaturas
+        perguntarTemperatura("mínima", temperaturaMinima);
+        perguntarTemperatura("média", temperaturaMedia);
+        perguntarTemperatura("máxima", temperaturaMaxima);
+  
+        // Exibe a tabela após o usuário acertar todas as respostas
+        if (acertos === 3) {
+          const tabelaHTML = `
+            <table border="1">
+              <thead>
+                <tr>
+                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+                </tr>
+              </thead>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </table>
+          `;
+          
+          // Adiciona a tabela ao div com id "tabela-container"
+          document.getElementById("tabela-container").innerHTML = tabelaHTML;
+        }
+      }
+    </script>
+
+  <div class="pergunta"> Um pouco sobre o planeta: </div>
+
+  <br>
+
+  <div class="resposta">
+  A atmosfera de Vênus é extremamente densa e composta principalmente de dióxido de carbono, com nuvens de
+  ácido sulfúrico, criando um efeito estufa descontrolado que eleva as temperaturas na superfície para cerca
+  de 465 graus Celsius, tornando-o o planeta mais quente do Sistema Solar.
+<br> <br>
+A pressão atmosférica na superfície de Vênus é cerca de 92 vezes a da Terra, equivalente à pressão encontrada
+ a 900 metros de profundidade nos oceanos terrestres. Este ambiente inóspito, junto com a densa cobertura de
+  nuvens, impede a visualização direta da superfície, que foi mapeada principalmente através de radar.
+<br> <br>
+  Vênus tem um movimento retrógrado, girando no sentido oposto à maioria dos planetas do Sistema Solar, e seu
+  dia (243 dias terrestres) é mais longo que seu ano (225 dias terrestres).
+<br> <br>
+  Explorações de Vênus incluem missões da União Soviética, como as sondas Venera, e mais recentemente a sonda
+  Akatsuki do Japão. Essas missões revelaram informações cruciais sobre a geologia, atmosfera e climatologia
+  do planeta.
+  </div>
+
+<br> <br> <br>
+
+<div class="pergunta"> Sua descoberta: </div>
+<div class="resposta"> 
+      Vênus é conhecido desde a antiguidade devido à sua visibilidade a olho nu. As civilizações antigas
+      observaram e registraram o comportamento deste planeta, frequentemente associando-o a divindades
+      devido ao seu brilho intenso. Com o advento do telescópio no século XVII, os astrônomos começaram
+      a entender mais sobre Vênus. Em 1610, Galileo Galilei foi o primeiro a observar Vênus através de
+      um telescópio e descobriu que ele passava por fases, semelhantes às da Lua, fornecendo evidências
+      cruciais para a aceitação do modelo heliocêntrico de Copérnico, que coloca o Sol no centro do
+      Sistema Solar.
+</div>.
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

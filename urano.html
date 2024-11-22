@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DE URANO</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+
+<section>
+  
+  <img src="imagens/urano foto.png" alt = "Imagem de Urano" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Urano? </div>
+
+ <p> </p>
+
+ <div class= "resposta">
+  Urano é o sétimo planeta a partir do Sol, o terceiro maior e o
+  quarto mais massivo dos oito planetas do Sistema Solar. Foi nomeado
+  em homenagem ao deus grego do céu, Urano. Embora seja visível a olho
+  nu em boas condições de visualização, não foi reconhecido pelos astrônomos
+  antigos como um planeta devido a seu pequeno brilho e lenta órbita.
+<br> <br>
+  Urano tem uma composição similar à de Netuno, e ambos possuem uma composição química diferente da
+  dos maiores gigantes gasosos, Júpiter e Saturno. Como tal, os astrônomos algumas vezes os colocam
+  em uma categoria separada, os "gigantes gelados". A atmosfera de Urano, embora similar às de Júpiter
+  e Saturno em sua composição primária de hidrogênio e hélio, contém mais "gelos" tais como água, amônia
+  e metano, assim como traços de hidrocarbonetos. É a mais fria atmosfera planetária no Sistema
+  Solar, com uma temperatura mínima de 49 K (–224 °C). Tem uma complexa estrutura de nuvens em camadas,
+  e acredita-se que a água forma as nuvens mais baixas, e o metano as mais exteriores. Em contraste,
+  seu interior é formado principalmente por gelo e rochas.
+ </div>
+   
+ <div class="pergunta"> Características do Planeta:</div>
+
+<br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Urano </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	8,681 x 10^25</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Gasoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 2,871 x 10^9 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td> 0d 17h 14m na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>	30799,095 dias / 84,32 anos</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>28 Satélites</td>  </tr>
+ <tr>  <th> Raio </th> <td> 25.362 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 8,115 6 x 10^9 </td>  </tr>
+  </table>
+
+<br> <br>
+
+<button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+<div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+    <script>
+      // Temperaturas do planeta
+       temperaturaMinima = "-224";
+       temperaturaMedia = "-220";
+       temperaturaMaxima = "-216";
+  
+      let acertos = 0;
+  
+      // Função que pergunta e verifica a resposta
+      function perguntarTemperatura(tipo, valorCorreto) {
+        let resposta;
+        while (resposta !== valorCorreto) {
+          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+          if (resposta > valorCorreto) {
+            alert("Resposta incorreta, o valor é menor");
+          }
+          if (resposta < valorCorreto) {
+            alert("Resposta incorreta, o valor é maior");
+         }
+        }
+        acertos++;
+        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+      }
+  
+      // Função para iniciar as perguntas quando o botão for clicado
+      function iniciarPerguntas() {
+        // Perguntas sobre as temperaturas
+        perguntarTemperatura("mínima", temperaturaMinima);
+        perguntarTemperatura("média", temperaturaMedia);
+        perguntarTemperatura("máxima", temperaturaMaxima);
+  
+        // Exibe a tabela após o usuário acertar todas as respostas
+        if (acertos === 3) {
+          const tabelaHTML = `
+            <table border="1">
+              <thead>
+                <tr>
+                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+                </tr>
+              </thead>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </table>
+          `;
+          
+          // Adiciona a tabela ao div com id "tabela-container"
+          document.getElementById("tabela-container").innerHTML = tabelaHTML;
+        }
+      }
+    </script>
+  
+<div class="pergunta"> Um pouco sobre o planeta: </div>
+
+<div class="resposta">
+  Órbita e Rotação: Urano possui uma órbita incomum, sendo inclinada em cerca de 98 graus
+  em relação ao plano de sua órbita ao redor do Sol, fazendo com que seu eixo de rotação esteja
+  praticamente no plano orbital. Isso resulta em estações extremas e longos períodos de luz e escuridão.
+<br> <br>
+  Atmosfera e Clima: Sua atmosfera é composta principalmente por hidrogênio (cerca de 83%)
+  e hélio (cerca de 15%), com traços de metano que dão ao planeta uma coloração azul-esverdeada
+  característica. Os ventos em Urano são extremamente rápidos, atingindo velocidades de até 900 km/h.
+<br> <br>
+  Anéis e Luas: Urano possui um sistema de anéis, embora sejam muito menos visíveis e impressionantes
+  do que os de Saturno. Tem 27 luas conhecidas, sendo as maiores Miranda, Ariel, Umbriel, Titânia e Oberon.
+<br> <br>
+  Composição e Estrutura Interna: Urano é composto principalmente por uma mistura de gelo de água,
+  amônia e metano, além de rocha e metal em seu núcleo. Sua estrutura interna é similar à de Netuno,
+  com um núcleo rochoso e gelado, envolto por um manto de água, amônia e metano, coberto por uma
+  atmosfera de hidrogênio e hélio.
+
+<div class="pergunta"> Sua descoberta: </div>
+
+<br>
+
+<div class="resposta">
+  Urano foi descoberto em 1781 pelo astrônomo britânico William Herschel.
+  Observando o céu com um telescópio que ele mesmo construiu, Herschel notou um
+  objeto que se movia de maneira diferente das estrelas. Após estudos adicionais,
+  ele concluiu que havia encontrado um novo planeta no Sistema Solar. A descoberta
+  de Urano ampliou significativamente nosso entendimento do Sistema Solar e teve um
+  impacto profundo no desenvolvimento da astronomia. Urano foi também o primeiro planeta a ser descoberto
+  por meio de um telescópio.
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

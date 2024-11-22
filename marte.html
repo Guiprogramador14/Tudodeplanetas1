@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DE MARTE</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+
+<section>
+  
+  <img src="imagens/marte foto.png" alt = "Imagem de Marte" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Marte? </div>
+
+ <p> </p>
+
+ <div class= "resposta">
+  Marte é o quarto planeta a partir do Sol, o segundo menor do Sistema Solar, atrás apenas de Mercúrio.
+  Batizado em homenagem a divindade romana da guerra, muitas vezes é descrito como o "Planeta Vermelho",
+  porque o óxido de ferro predominante em sua superfície lhe dá uma aparência avermelhada.
+  Marte é um planeta rochoso com uma atmosfera fina, com características de superfície que lembram tanto
+  as crateras de impacto da Lua quanto vulcões, vales, desertos e calotas polares da Terra. O período de
+  rotação e os ciclos sazonais de Marte são também semelhantes aos da Terra, assim como é a inclinação
+  que produz as suas estações do ano. Marte é o lar do Monte Olimpo, a segunda montanha mais alta
+  conhecida no Sistema Solar (a mais alta em um planeta), e do Valles Marineris, um desfiladeiro
+  gigantesco. A suave Bacia Polar Norte, no hemisfério norte marciano, cobre cerca de 40% do planeta
+  e pode ser uma enorme marca de impacto. Marte tem duas luas conhecidas, Fobos e Deimos, que
+  são pequenas e de forma irregular. Estas luas podem ser asteroides capturados, semelhante
+  ao 5261 Eureka, um asteroide troiano marciano.
+ </div>
+   
+ <div class="pergunta"> Características do Planeta:</div>
+
+ <br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Marte </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	6,4174 x 10^23</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Rochoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 227.900.000 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td>1d 0h 37m na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>687 dias</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>2 Satélites</td>  </tr>
+ <tr>  <th> Raio </th> <td> 3.389,5 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 144.400.000 km² </td>  </tr>
+  </table>
+
+<br> <br>
+
+<button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+<div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+    <script>
+      // Temperaturas do planeta
+       temperaturaMinima = "-143";
+       temperaturaMedia = "-63";
+       temperaturaMaxima = "35";
+  
+      let acertos = 0;
+  
+      // Função que pergunta e verifica a resposta
+      function perguntarTemperatura(tipo, valorCorreto) {
+        let resposta;
+        while (resposta !== valorCorreto) {
+          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+          if (resposta > valorCorreto) {
+            alert("Resposta incorreta, o valor é menor");
+          }
+          if (resposta < valorCorreto) {
+            alert("Resposta incorreta, o valor é maior");
+         }
+        }
+        acertos++;
+        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+      }
+  
+      // Função para iniciar as perguntas quando o botão for clicado
+      function iniciarPerguntas() {
+        // Perguntas sobre as temperaturas
+        perguntarTemperatura("mínima", temperaturaMinima);
+        perguntarTemperatura("média", temperaturaMedia);
+        perguntarTemperatura("máxima", temperaturaMaxima);
+  
+        // Exibe a tabela após o usuário acertar todas as respostas
+        if (acertos === 3) {
+          const tabelaHTML = `
+            <table border="1">
+              <thead>
+                <tr>
+                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+                </tr>
+              </thead>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </table>
+          `;
+          
+          // Adiciona a tabela ao div com id "tabela-container"
+          document.getElementById("tabela-container").innerHTML = tabelaHTML;
+        }
+      }
+    </script>
+
+<div class="pergunta"> Um pouco sobre o planeta: </div>
+
+<div class="resposta">
+  Marte possui aproximadamente metade do diâmetro da Terra e é coberto por crateras, planícies
+  e vulcões gigantescos, sendo o Monte Olimpo o maior vulcão conhecido do sistema solar.
+<br>
+  Sua atmosfera é fina e composta principalmente de dióxido de carbono, com vestígios de nitrogênio e argônio.
+<br> <br>
+  A superfície de Marte exibe vastas planícies (como a Planície Amazonis e a Planície Acidália),
+  grandes desfiladeiros (como Valles Marineris, muito maior que o Grand Canyon da Terra), e crateras
+  de impacto de vários tamanhos.
+<br> <br>
+  Regiões polares marcianas apresentam calotas de gelo de dióxido de carbono no inverno, e água congelada
+  misturada com poeira e rocha.
+<br> <br>
+  Há evidências de que Marte teve água líquida em seu passado distante, indicando condições que
+  poderiam ter sido favoráveis para a vida microbiana.
+</div>
+
+<br>
+
+<div class="pergunta"> Sua descoberta: </div>
+
+<div class="resposta">
+  A descoberta de Marte remonta à antiguidade, onde este planeta era conhecido pelos povos da
+  Mesopotâmia, Egito e Grécia. Aqui está um resumo das etapas principais da descoberta e exploração
+  de Marte ao longo da história.
+  Civilizações antigas, como os babilônios, egípcios e gregos, registraram observações do céu 
+  e identificaram Marte como um dos planetas
+  visíveis a olho nu. Os gregos deram a Marte o nome de Ares, o deus da guerra.
+<br>
+  No século XVI, o modelo heliocêntrico de Copérnico começou a ser aceito, o que implicava
+  que Marte e outros planetas orbitavam o Sol. Isso contribuiu para uma melhor compreensão
+  da posição e do movimento de Marte no sistema solar.
+<br>
+  No século XVII, com o desenvolvimento do telescópio por Galileu Galilei, as observações
+  detalhadas de Marte começaram a revelar características de sua superfície, como manchas
+  escuras e regiões brilhantes, embora essas observações fossem limitadas pela tecnologia da época.
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

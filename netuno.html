@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DE NETUNO</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+
+<section>
+  
+  <img src="imagens/netuno foto.png" alt = "Imagem de Netuno" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Netuno? </div>
+
+ <p> </p>
+
+<div class= "resposta">
+  Netuno é o oitavo planeta do Sistema Solar, o último a partir do Sol.Pertencente
+  ao grupo dos gigantes gasosos, possui um tamanho ligeiramente menor que o de Urano,
+  mas maior massa, equivalente a 17 massas terrestres.
+<br>
+  O planeta é formado por um pequeno núcleo rochoso ao redor do qual encontra-se uma
+  camada formada possivelmente por água, amônia e metano sobre a qual situa-se sua
+  turbulenta atmosfera, constituída predominantemente de hidrogênio e hélio. De fato,
+  notáveis eventos climáticos ocorrem em Netuno, inclusive a formação de diversas camadas
+  de nuvens, tempestades ciclônicas visíveis, como a já extinta Grande Mancha Escura,
+  além dos ventos mais rápidos do Sistema Solar, que atingem mais de 2 000 km/h.
+  A radiação solar recebida por Netuno não seria suficiente para fornecer tamanha
+  energia à turbulenta atmosfera, pelo que descobriu-se que o calor irradiado do
+  centro do planeta possui um papel importante na manutenção destes eventos meteorológicos 
+  extremos. A pequena quantidade de metano nas camadas altas da atmosfera é, em parte,
+  responsável pela coloração azul do planeta.
+</div>
+   
+<div class="pergunta"> Características do Planeta:</div>
+
+<br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Netuno </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	1,024 x 10^26</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Gasoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 4,495 x 10^9 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td> 0d 16h 6m na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>60 190,03 dias / 164,79 anos</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>14 Satélites</td>  </tr>
+ <tr>  <th> Raio </th> <td> 24.622 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 7,6183x10^9 km² </td>  </tr>
+  </table>
+
+<br> <br>
+
+<button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+<div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+    <script>
+      // Temperaturas do planeta
+       temperaturaMinima = "-235";
+       temperaturaMedia = "-223,15";
+       temperaturaMaxima = "-200";
+  
+      let acertos = 0;
+  
+      // Função que pergunta e verifica a resposta
+      function perguntarTemperatura(tipo, valorCorreto) {
+        let resposta;
+        while (resposta !== valorCorreto) {
+          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+          if (resposta > valorCorreto) {
+            alert("Resposta incorreta, o valor é menor");
+          }
+          if (resposta < valorCorreto) {
+            alert("Resposta incorreta, o valor é maior");
+         }
+        }
+        acertos++;
+        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+      }
+  
+      // Função para iniciar as perguntas quando o botão for clicado
+      function iniciarPerguntas() {
+        // Perguntas sobre as temperaturas
+        perguntarTemperatura("mínima", temperaturaMinima);
+        perguntarTemperatura("média", temperaturaMedia);
+        perguntarTemperatura("máxima", temperaturaMaxima);
+  
+        // Exibe a tabela após o usuário acertar todas as respostas
+        if (acertos === 3) {
+          const tabelaHTML = `
+            <table border="1">
+              <thead>
+                <tr>
+                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+                </tr>
+              </thead>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </table>
+          `;
+          
+          // Adiciona a tabela ao div com id "tabela-container"
+          document.getElementById("tabela-container").innerHTML = tabelaHTML;
+        }
+      }
+    </script>
+
+<div class="pergunta"> Um pouco sobre o planeta: </div>
+
+<div class="resposta">
+  É um gigante gasoso, composto principalmente por hidrogênio e hélio, com uma atmosfera rica em gases
+  como metano, que dá ao planeta sua cor azul característica.
+<br>
+  Possui 14 satélites conhecidos, sendo o maior Tritão, que é notável por sua órbita retrógrada e
+  possível origem capturada.
+<br> <br>
+  A atmosfera de Netuno apresenta ventos extremamente velozes, com velocidades que podem chegar a 2.000 km/h.
+<br>
+  É também o planeta mais frio do Sistema Solar, com temperaturas superficiais que podem cair abaixo de -200°C.
+<br> <br>
+  A única missão espacial dedicada a estudar Netuno foi a Voyager 2, que passou pelo planeta em 1989 e
+  forneceu muitas das informações que temos hoje.
+<br>
+  Missões futuras, como as propostas para a exploração de Urano e seus sistemas, podem expandir nosso
+  conhecimento sobre Netuno indiretamente, devido às semelhanças entre esses planetas de gelo.
+<br> <br>
+  Netuno tem anéis tênues, compostos por partículas de poeira e gelo.
+<br>
+  Seu campo magnético é significativamente inclinado em relação ao seu eixo de rotação, o que contribui
+  para auroras polares muito intensas.
+  </div>
+
+<div class="pergunta"> Sua descoberta: </div>
+<div class="resposta">
+  A descoberta de Netuno em 1846 foi resultado de observações de perturbações na órbita de Urano,
+  que levaram os matemáticos Urbain Le Verrier e John Couch Adams a prever a existência de um novo planeta.
+  Johann Gottfried Galle, seguindo as previsões de Le Verrier, encontrou Netuno em 23 de setembro de 1846.
+  Esta descoberta não só ampliou nosso entendimento do Sistema Solar, mas também destacou a importância
+  da matemática na astronomia e consolidou a teoria gravitacional de Newton como uma ferramenta poderosa 
+  para previsão de fenômenos astronômicos.
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

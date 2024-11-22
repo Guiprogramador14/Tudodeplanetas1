@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+ </head>
+<body>
+
+<header>
+ <h1 class="comeco"> ESSA PÁGINA É DESTINADA A FALAR DE SATURNO</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+
+<section>
+  
+  <img src="imagens/saturno foto.png" alt = "Imagem de Saturno" style ="margin-left: 70px;">
+  
+<div class="pergunta"> O que é o planeta Saturno? </div>
+
+ <p> </p>
+
+<div class= "resposta">
+  Saturno é o sexto planeta a partir do Sol e o segundo maior do Sistema Solar atrás de Júpiter. Pertencente
+  ao grupo dos gigantes gasosos, possui cerca de 95 massas terrestres e orbita a uma distância média de 9,5
+  unidades astronômicas.
+<br> <br>
+  Possui um pequeno núcleo rochoso, circundado por uma espessa camada de hidrogênio metálico e hélio.
+  A sua atmosfera, também composta principalmente de hidrogênio, apresenta faixas com fortes ventos,
+  cuja energia provém tanto do calor recebido do Sol quanto da energia irradiada de seu centro. Entretanto,
+  estas bandas possuem aspecto pouco proeminente, com coloração que varia do marrom ao amarelado, devido à
+  espessa névoa que envolve o planeta, além das camadas de nuvens. Sazonalmente surgem grandes sistemas de
+  tempestades, além de vórtices permanentes existentes nos polos.
+</div>
+   
+<div class="pergunta"> Características do Planeta:</div>
+
+<br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Saturno </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	5,683 x 10^26</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Gasoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 1,434 x 10^9 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td>0d 10h 34m na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>1 075 922 dias / 29,45 anos</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>146 Satélites</td>  </tr>
+ <tr>  <th> Raio </th> <td> 58.232 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 	4,27 x 10^10 km² </td>  </tr>
+  </table>
+
+<br> <br>
+
+
+<button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+<div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+    <script>
+      // Temperaturas do planeta
+       temperaturaMinima = "-185";
+       temperaturaMedia = "-139";
+       temperaturaMaxima = "-120";
+  
+      let acertos = 0;
+  
+      // Função que pergunta e verifica a resposta
+      function perguntarTemperatura(tipo, valorCorreto) {
+        let resposta;
+        while (resposta !== valorCorreto) {
+          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+          if (resposta > valorCorreto) {
+            alert("Resposta incorreta, o valor é menor");
+          }
+          if (resposta < valorCorreto) {
+            alert("Resposta incorreta, o valor é maior");
+         }
+        }
+        acertos++;
+        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+      }
+  
+      // Função para iniciar as perguntas quando o botão for clicado
+      function iniciarPerguntas() {
+        // Perguntas sobre as temperaturas
+        perguntarTemperatura("mínima", temperaturaMinima);
+        perguntarTemperatura("média", temperaturaMedia);
+        perguntarTemperatura("máxima", temperaturaMaxima);
+  
+        // Exibe a tabela após o usuário acertar todas as respostas
+        if (acertos === 3) {
+          const tabelaHTML = `
+            <table border="1">
+              <thead>
+                <tr>
+                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+                </tr>
+              </thead>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </table>
+          `;
+          
+          // Adiciona a tabela ao div com id "tabela-container"
+          document.getElementById("tabela-container").innerHTML = tabelaHTML;
+        }
+      }
+    </script>
+
+<div class="pergunta"> Um pouco sobre o planeta: </div>
+
+<div class="resposta">
+  Tamanho e Massa: Saturno tem aproximadamente 9,5 vezes o diâmetro da Terra e cerca de 95 vezes a sua massa.
+<br>
+  Anéis: É famoso por seus anéis extensos, compostos principalmente de gelo, poeira e rochas pequenas.
+  Estes anéis são divididos em várias bandas concêntricas.
+<br><br>
+  Composição: Principalmente composta de hidrogênio (cerca de 96%) e hélio (cerca de 3%), com traços de metano,
+  amônia, vapor d'água e outros gases.
+<br>
+  Clima: Saturno possui ventos extremamente fortes em sua atmosfera, alcançando velocidades de até 1.800 km/h.
+<br> <br>
+  Sondas Espaciais: Missões como a Cassini-Huygens forneceram dados detalhados sobre Saturno, seus
+  anéis e luas.
+<br>
+  Luas: Saturno possui  de 80 luas conhecidas, sendo Titã e Encélado as mais estudadas devido às suas
+  características únicas.
+<br> <br>
+  Órbita: Saturno leva cerca de 29 anos terrestres para orbitar o Sol.
+  Rotação: O planeta gira rapidamente sobre seu eixo, completando uma rotação em aproximadamente
+  10 horas e 33 minutos.
+<br> <br>
+
+<div class="pergunta"> Sua descoberta: </div>
+<div class="resposta">
+  Saturno é conhecido desde tempos antigos, sendo visível no céu noturno devido ao seu brilho e movimento
+  em relação às estrelas fixas. Astrônomos da Mesopotâmia, como os babilônios, registraram observações
+  do planeta e de seus movimentos já por volta de 700 a.C.
+<br>
+  A descoberta dos anéis de Saturno é creditada a Galileu Galilei em 1610, que os observou pela primeira
+  vez através de um telescópio primitivo. Inicialmente, Galileu interpretou os anéis como "orelhas" ou 
+  protuberâncias ao redor do planeta, devido à baixa resolução de seu telescópio.
+<br>
+  Em 1655, o astrônomo holandês Christiaan Huygens foi o primeiro a descrever corretamente os anéis
+  de Saturno como um disco plano ao redor do planeta. Ele também identificou a maior lua de Saturno, Titã.
+<br>
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>

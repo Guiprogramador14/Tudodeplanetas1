@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="style.css">
+   <title> TUDODEPLANETAS</title>
+
+ </head>
+<body>
+
+<header>
+ <h1 class= "comeco"> ESSA PÁGINA É DESTINADA A FALAR DE MERCÚRIO</h1> <!--cabeçalho-->
+</header>
+
+<nav id="menuPlanetas">
+  <!--páginas dos botões do cabeçalho-->
+    <button onclick="window.location.href='index.html'">Sistema Solar</button>
+  </nav>
+
+<section>
+  
+  <img src="imagens/mercurio foto.png" alt = "Imagem de Mercúrio" style ="margin-left: 70px;">
+  
+ <div class="pergunta"> O que é o planeta Mercúrio? </div>
+
+ <p> </p>
+
+ <div class= "resposta">
+Mercúrio é o menor e mais interno planeta do Sistema Solar e é um dos quatro planetas telúricos do Sistema 
+Solar e seu corpo é rochoso como a Terra.
+<br>
+É o menor planeta do sistema solar, com um raio equatorial de 2 439,7 km.Mercúrio é menor até que os dois
+maiores satélites naturais do sistema solar, as luas Ganimede e Titã, embora seja mais massivo.
+Mercúrio não apresenta estações do ano e alguns locais não recebem a luz do sol.A atmosfera de Mercúrio
+é basicamente composta por átomos de árgon, néon e hélio e apresenta uma pressão muito baixa,
+cerca de um bilhão de vezes menor do que a da Terra ao nível do mar. As altas temperaturas, em razão
+da proximidade com o sol, fazem com que esses átomos se dispersem pelo espaço,
+o que tem como consequências: o pequeno índice de erosão hídrica e eólica; a baixa proteção da atmosfera
+frente a meteoritos e a incapacidade de se conservar as médias térmicas.
+Por conta desse último fator, as temperaturas no planeta Mercúrio variam.
+ </div>
+   
+ <div class="pergunta"> Características do Planeta:</div>
+ <br>
+
+  <table border="1" style="margin-left:10px; text-align:left; color:white; font-size: 30px;">
+  <thead> <tr> <th colspan="2" style="text-align: center; background-color: rgb(243, 197, 44);"> Mercúrio </th> </tr> </thead>
+<tr>  <th> Massa </th> <td>	3,3011 x 10^23</td>  </tr>
+ <tr>  <th> Classificação </th> <td>Rochoso</td> </tr>
+  <tr>  <th> Distância do Sol </th> <td> 58.000.000 km</td> </tr>
+   <tr>  <th> Duração do dia </th> <td>59 dias na Terra</td>  </tr>
+   <tr>  <th> Período orbital </th> <td>88 dias</td> </tr>           <!--Características-->
+  <tr>  <th> Lua(s)/Satélites </th> <td>Nenhuma</td>  </tr>
+ <tr>  <th> Raio </th> <td> 2.439,7 km</td>  </tr>
+<tr>  <th> Área da superfície </th> <td> 74.800.000 km² </td>  </tr>
+  </table>
+
+  <br> <br>
+
+  <button onclick="iniciarPerguntas()">Iniciar Perguntas das Temperaturas</button>
+
+  <div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
+
+  <script>
+    // Temperaturas do planeta
+    let temperaturaMinima = "-183,15";
+    let temperaturaMedia = "166,85";
+    let temperaturaMaxima = "426,85";
+
+    let acertos = 0;
+
+    // Função que pergunta e verifica a resposta
+    function perguntarTemperatura(tipo, valorCorreto) {
+      let resposta;
+      while (resposta !== valorCorreto) {
+        resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+        if (resposta > valorCorreto) {
+          alert("Resposta incorreta, o valor é menor");
+        }
+        if (resposta < valorCorreto) {
+          alert("Resposta incorreta, o valor é maior");
+       }
+      }
+      acertos++;
+      alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+    }
+
+    // Função para iniciar as perguntas quando o botão for clicado
+    function iniciarPerguntas() {
+      // Perguntas sobre as temperaturas
+      perguntarTemperatura("mínima", temperaturaMinima);
+      perguntarTemperatura("média", temperaturaMedia);
+      perguntarTemperatura("máxima", temperaturaMaxima);
+
+      // Exibe a tabela após o usuário acertar todas as respostas
+      if (acertos === 3) {
+        const tabelaHTML = `
+          <table border="1">
+            <thead>
+              <tr>
+                <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+              </tr>
+            </thead>
+            <tr class="blue">
+              <th>Mínima</th>
+              <td>${temperaturaMinima}°C</td>
+            </tr>
+            <tr class="pink">
+              <th>Média</th>
+              <td>${temperaturaMedia}°C</td>
+            </tr>
+            <tr class="red">
+              <th>Máxima</th>
+              <td>${temperaturaMaxima}°C</td>
+            </tr>
+          </table>
+        `;
+        
+        // Adiciona a tabela ao div com id "tabela-container"
+        document.getElementById("tabela-container").innerHTML = tabelaHTML;
+      }
+    }
+  </script>
+
+<div class="pergunta"> Um pouco sobre o planeta: </div>
+<br>
+
+<di class="resposta"> Mercúrio é um planeta que não possui uma inclinação semelhante à da Terra. Sem essa
+   inclinação e com uma translação curta,
+   não há existência de estações do ano. Essa baixa inclinação explica também o gelo encontrado nas crateras
+   desse planeta. Segundo os estudos
+   da sonda Messenger, o fato de não estar bem inclinado em relação ao Sol faz com que a iluminação não atinja
+   o fundo das crateras,
+   possibilitando a formação de gelo durante a noite.
+<br> <br>
+  Sua composição atmosférica é instável e fraca quando comparada com a nossa. A proximidade com o Sol faz
+  com que Mercúrio sofra com os ventos
+  solares, dificultando a presença de atmosfera, satélites naturais e anéis. Com isso, o planeta é
+  suscetível aos meteoros, que constantemente
+  se chocam com o planeta, abrindo enormes crateras.
+<br> <br>
+  A estrutura física de Mercúrio também chama a atenção. Os estudos das sondas indicam que o núcleo do
+  planeta seja maior do que o da Terra,
+  correspondendo a 75% de Mercúrio. Isso é bem desproporcional, haja vista que se trata do menor planeta
+  do Sistema Solar, mas com um núcleo
+  de quase 4000 quilômetros de diâmetro.
+<br> <br>
+  Uma das possíveis explicações é que Mercúrio era um planeta enorme, localizado bem distante de onde está
+  hoje, há bilhões de anos.
+  Com seu movimento orbital, foi sendo transportado para próximo do Sol. Durante esse “transporte”, choques
+  com outros corpos celestes afetaram
+  sua estrutura, diminuindo sua massa rochosa. Esse passado turbulento também pode ajudar a explicar a
+  densidade de Mercúrio, que é o segundo
+  planeta mais denso do Sistema Solar, atrás apenas da Terra.
+     </div>
+<br> <br>
+
+<div class="pergunta"> Sua descoberta: </div>
+<div class="resposta">
+<br>
+As primeiras observações telescópicas de Mercúrio foram feitas por Galileu Galilei em 1610. Em 1631, o
+astrônomo francês Pierre
+Gassendi observou a movimentação de Mercúrio em torno do Sol. A prova, contudo, de que traça uma órbita ao
+ redor do Sol só ocorreu
+em 1639, pelos estudos do astrônomo italiano Giovanni Zupus.
+         </div>
+<br>
+
+</section>
+
+
+<button id="liberarPlaneta" class="botao" onclick="liberarnovoplaneta()" style="margin-top: 100px;">Liberar novo planeta</button>
+<p id="planetaLiberado"></p>
+
+<script src="javaplanetas.js"></script>
+
+ <!-- <aside>
+  <h4>OUTROS LINKS, PROPAGANDAS<br>OU  PATROCINADORES</h4>
+  <p>
+propagandas
+  </p>
+ </aside> -->
+ 
+ <footer>
+Desenvolvedor Guilherme Antonio  E-mail: guilherme.silva2728@etec.sp.gov.br
+</footer>
+ 
+</body>
+</html>
