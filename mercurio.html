@@ -63,35 +63,51 @@ Por conta desse último fator, as temperaturas no planeta Mercúrio variam.
 
   <script>
     // Temperaturas do planeta
-    let temperaturaMinima = "-183,15";
-    let temperaturaMedia = "166,85";
-    let temperaturaMaxima = "426,85";
-
+    let temperaturaMinima = -183.15;
+    let temperaturaMedia = 166.85;
+    let temperaturaMaxima = 426.85;
+  
     let acertos = 0;
-
+  
     // Função que pergunta e verifica a resposta
     function perguntarTemperatura(tipo, valorCorreto) {
       let resposta;
-      while (resposta !== valorCorreto) {
+      
+      // Continua perguntando até que a resposta esteja correta
+      do {
         resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
-        if (resposta > valorCorreto) {
-          alert("Resposta incorreta, o valor é menor");
+  
+        // Converte a resposta para número
+        resposta = parseFloat(resposta);
+  
+        // Verifica se a resposta é um número válido
+        if (isNaN(resposta)) {
+          alert("Por favor, insira um número válido.");
+          continue;
         }
-        if (resposta < valorCorreto) {
-          alert("Resposta incorreta, o valor é maior");
-       }
-      }
+  
+        if (resposta > valorCorreto) {
+          alert("Resposta incorreta, o valor é menor.");
+        } else if (resposta < valorCorreto) {
+          alert("Resposta incorreta, o valor é maior.");
+        }
+  
+      } while (resposta !== valorCorreto); // Repeats the prompt until the correct answer is given
+  
       acertos++;
       alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
     }
-
+  
     // Função para iniciar as perguntas quando o botão for clicado
     function iniciarPerguntas() {
+      // Reseta o contador de acertos antes de começar
+      acertos = 0;
+  
       // Perguntas sobre as temperaturas
       perguntarTemperatura("mínima", temperaturaMinima);
       perguntarTemperatura("média", temperaturaMedia);
       perguntarTemperatura("máxima", temperaturaMaxima);
-
+  
       // Exibe a tabela após o usuário acertar todas as respostas
       if (acertos === 3) {
         const tabelaHTML = `
@@ -101,21 +117,23 @@ Por conta desse último fator, as temperaturas no planeta Mercúrio variam.
                 <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
               </tr>
             </thead>
-            <tr class="blue">
-              <th>Mínima</th>
-              <td>${temperaturaMinima}°C</td>
-            </tr>
-            <tr class="pink">
-              <th>Média</th>
-              <td>${temperaturaMedia}°C</td>
-            </tr>
-            <tr class="red">
-              <th>Máxima</th>
-              <td>${temperaturaMaxima}°C</td>
-            </tr>
+            <tbody>
+              <tr class="blue">
+                <th>Mínima</th>
+                <td>${temperaturaMinima}°C</td>
+              </tr>
+              <tr class="pink">
+                <th>Média</th>
+                <td>${temperaturaMedia}°C</td>
+              </tr>
+              <tr class="red">
+                <th>Máxima</th>
+                <td>${temperaturaMaxima}°C</td>
+              </tr>
+            </tbody>
           </table>
         `;
-        
+  
         // Adiciona a tabela ao div com id "tabela-container"
         document.getElementById("tabela-container").innerHTML = tabelaHTML;
       }

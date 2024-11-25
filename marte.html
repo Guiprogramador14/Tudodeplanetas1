@@ -61,66 +61,84 @@
 
 <div id="tabela-container"></div> <!-- Área onde a tabela será exibida -->
 
-    <script>
-      // Temperaturas do planeta
-       temperaturaMinima = "-143";
-       temperaturaMedia = "-63";
-       temperaturaMaxima = "35";
-  
-      let acertos = 0;
-  
-      // Função que pergunta e verifica a resposta
-      function perguntarTemperatura(tipo, valorCorreto) {
-        let resposta;
-        while (resposta !== valorCorreto) {
-          resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
-          if (resposta > valorCorreto) {
-            alert("Resposta incorreta, o valor é menor");
-          }
-          if (resposta < valorCorreto) {
-            alert("Resposta incorreta, o valor é maior");
-         }
-        }
-        acertos++;
-        alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+<script>
+  // Temperaturas do planeta
+  let temperaturaMinima = -143;
+  let temperaturaMedia = -63;
+  let temperaturaMaxima = 35;
+
+  let acertos = 0;
+
+  // Função que pergunta e verifica a resposta
+  function perguntarTemperatura(tipo, valorCorreto) {
+    let resposta;
+    
+    // Continua perguntando até que a resposta esteja correta
+    do {
+      resposta = prompt(`Qual é a temperatura ${tipo} do planeta?`);
+
+      // Converte a resposta para número
+      resposta = parseFloat(resposta);
+
+      // Verifica se a resposta é um número válido
+      if (isNaN(resposta)) {
+        alert("Por favor, insira um número válido.");
+        continue;
       }
-  
-      // Função para iniciar as perguntas quando o botão for clicado
-      function iniciarPerguntas() {
-        // Perguntas sobre as temperaturas
-        perguntarTemperatura("mínima", temperaturaMinima);
-        perguntarTemperatura("média", temperaturaMedia);
-        perguntarTemperatura("máxima", temperaturaMaxima);
-  
-        // Exibe a tabela após o usuário acertar todas as respostas
-        if (acertos === 3) {
-          const tabelaHTML = `
-            <table border="1">
-              <thead>
-                <tr>
-                  <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
-                </tr>
-              </thead>
-              <tr class="blue">
-                <th>Mínima</th>
-                <td>${temperaturaMinima}°C</td>
-              </tr>
-              <tr class="pink">
-                <th>Média</th>
-                <td>${temperaturaMedia}°C</td>
-              </tr>
-              <tr class="red">
-                <th>Máxima</th>
-                <td>${temperaturaMaxima}°C</td>
-              </tr>
-            </table>
-          `;
-          
-          // Adiciona a tabela ao div com id "tabela-container"
-          document.getElementById("tabela-container").innerHTML = tabelaHTML;
-        }
+
+      if (resposta > valorCorreto) {
+        alert("Resposta incorreta, o valor é menor.");
+      } else if (resposta < valorCorreto) {
+        alert("Resposta incorreta, o valor é maior.");
       }
-    </script>
+
+    } while (resposta !== valorCorreto); // Repeats the prompt until the correct answer is given
+
+    acertos++;
+    alert(`Resposta correta! Você acertou a temperatura ${tipo}.`);
+  }
+
+  // Função para iniciar as perguntas quando o botão for clicado
+  function iniciarPerguntas() {
+    // Reseta o contador de acertos antes de começar
+    acertos = 0;
+
+    // Perguntas sobre as temperaturas
+    perguntarTemperatura("mínima", temperaturaMinima);
+    perguntarTemperatura("média", temperaturaMedia);
+    perguntarTemperatura("máxima", temperaturaMaxima);
+
+    // Exibe a tabela após o usuário acertar todas as respostas
+    if (acertos === 3) {
+      const tabelaHTML = `
+        <table border="1">
+          <thead>
+            <tr>
+              <th colspan="2" style="background-color: rgb(0,250,154);">Temperaturas do planeta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="blue">
+              <th>Mínima</th>
+              <td>${temperaturaMinima}°C</td>
+            </tr>
+            <tr class="pink">
+              <th>Média</th>
+              <td>${temperaturaMedia}°C</td>
+            </tr>
+            <tr class="red">
+              <th>Máxima</th>
+              <td>${temperaturaMaxima}°C</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+
+      // Adiciona a tabela ao div com id "tabela-container"
+      document.getElementById("tabela-container").innerHTML = tabelaHTML;
+    }
+  }
+</script>
 
 <div class="pergunta"> Um pouco sobre o planeta: </div>
 

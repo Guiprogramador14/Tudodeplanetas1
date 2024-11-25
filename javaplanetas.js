@@ -54,9 +54,8 @@ function liberarnovoplaneta() {
     let usuarioResposta;
 
     do {
-        usuarioResposta = prompt(perguntaAleatoria.pergunta);
-        
-        if (usuarioResposta && usuarioResposta.trim() === perguntaAleatoria.resposta) {
+        usuarioResposta = prompt(perguntaAleatoria.pergunta).trim();
+        if (usuarioResposta.toLowerCase() === perguntaAleatoria.resposta) {
             const desbloqueados = JSON.parse(localStorage.getItem("planetasDesbloqueados")) || [];
 
             // Verifica se todos os planetas já foram desbloqueados
@@ -115,7 +114,3 @@ function organizarPlanetas() {
         }
     });
 }
-
-
-
-
